@@ -1,0 +1,44 @@
+sql笔记
+
+
+从开始菜单的选项可以直接进去数据表，用户名和密码分别为root mysql
+显示所有数据库
+show databases;
+进入数据库如flask
+use flask;
+进入数据库flask后显示其所有的表
+show tables;
+显示数据表novel的所有信息
+show full columns from novel;
+创建一个名为class的表
+ create table class(
+ id int(4) not null primary key auto_increment comment '主键',
+ name varchar(20) not null comment '姓名',
+ sex int(4) not null default '0' comment '性别',
+ degree double(16,2) default null comment '分数');
+创建数据库miuidb
+create database miuidb;
+删除数据库
+drop database miuidb;
+向数据表class插入一条记录
+insert into class(name,sex,degree) values('charles','1','80.5');
+向数据表class插入多条记录
+insert into class(name,sex,degree) values('charles','1','80.5'),('tom','1','80.5');
+显示数据表所有内容
+select * from class;
+查看表 class 中前2行数据
+select * from class limit 2;
+限定条件查看数据表中的值，利用where
+select * from class where degree='50';
+删除表 class 中id为2 的记录
+delete from class where id='2';
+单表update一条记录
+update class set degree = '90.9' where id = 3;
+单表update多条记录
+update class set degree = '0' where id>2;
+增加单列
+alter table class
+add exam_type
+int(4) default null
+comment '考试类别'
+after sex;
