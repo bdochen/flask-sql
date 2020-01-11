@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Flask_login{% endblock %}
+{% block body_content %}
+    <style>
+        .row-center {
+            text-align: center;
+            margin-top: 10%;
+        }
+
+        .col-center {
+            display: inline-block;
+            float: none;
+            text-align: left;
+            width: 40%
+        }
+    </style>
+<div class="container">
+    <div class="row  row-center">
+        <div class="col-center">
+            <div  style="background-color: white; padding: 28px;border-radius: 8px;border-color: #00a3ff;border-width: 2px  ">
+                <div style="height: 80px;">
+                    <h3 style="text-align: center;color: balck; font-size: 35px;">欢迎注册</h3>
+                </div>
+
+                <form action="" method="post">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">账号：</span>
+                        <input type="text" name="username" class="form-control" placeholder="请输入您的账号" autocomplete="off">
+                    </div>
+                    <br>
+
+                    <div class="input-group ">
+                        <span class="input-group-addon"> 密码：</span>
+                        <input type="password" name="password" class="form-control" placeholder="请输入您的密码">
+                    </div>
+                    <br>
+
+                    <div class="input-group ">
+                        <span class="input-group-addon"> 邮箱：</span>
+                        <input type="text" name="email" class="form-control" placeholder="请输入您的邮箱" autocomplete="off">
+                    </div>
+                    <br>
+
+
+
+
+                    <div class="btn-group" >
+                        <input type="submit" value="注册" class="btn btn-success" style="width: 410px;">
+
+                    </div>
+<br>
+<br>
+
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" style="text-align: center;">
+                        <button    aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        <strong>{{ message }}</strong></div>
+                {% endfor %}
+        {% endif %}
+{% endwith %}
+
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

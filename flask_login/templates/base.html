@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://www.letianbiji.com/static/favicon.ico" rel="shortcut icon"/>
+ <style>
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <a class="navbar-brand " href="/login">Flask-Chen</a>
+        </div>
+
+        <div >
+            <ul class="nav navbar-nav">
+                <li ><a href="/begin">Home</a></li>
+                <li><a href="/">MIXC</a></li>
+                <li><a href="/">NICE</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+    {% block body_content %}
+    {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文档管理</title>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://www.letianbiji.com/static/favicon.ico" rel="shortcut icon"/>
+    <style type="text/css">
+         .big-border {
+        background: #fff;
+        width: 1400px;
+        margin: 0 auto;
+        padding: 10px;
+        }
+
+        body {
+            background: #f3f3f3;
+        }
+
+        .page-title {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <div class="big-border">
+    <h3 class="page-title">文档管理---{{hostname}}---{{hostip}}</h3>
+    <hr>
+    <h4>当前目录 {{ossep+subdir}}</h4>
+    <hr>
+    <table width="600px">
+      <thead>
+        <tr>
+          <th>文件或目录名</th>
+          <th>修改时间</th>
+          <th>大小</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if subdir %}
+        <tr>
+          <td><a href="../">..{{ossep}}</a></td>
+          <td></td>
+          <td></td>
+        </tr>
+        {% endif %}
+        {% for i in contents %}
+        <tr>
+          <td><a href="{{ url_for('document', subdir=subdir+i.filename) }}">{{ i.filename }}</a></td>
+          <td>{{ i.mtime }}</td>
+          <td>{{ i.size }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <hr>
+  </div>
+</body>
+</html>

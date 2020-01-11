@@ -1,0 +1,23 @@
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<button onclick="send_ajax()">发送AJAX请求</button>
+<p id="show"></p>
+
+<script>
+ function send_ajax(){
+     //1.创建xhr
+     var xhr = createXhr();
+     //2.创建请求
+     //xhr.open(method.url.asyn)注意：下面的/02-server是在flask应用中定义的路径
+     xhr.open('get','/api',true);
+     //3.设置回调函数(判断状态接收响应数据)
+     //xhr.onreadystatechange = function()
+     xhr.onreadystatechange = function () {
+         if(xhr.readyState == 4 && xhr.status == 200){
+             //xhr的自身状态是4并且服务器的状态是200就可以接收响应数据
+             document.getElementById('show').innerHTML = xhr.responseText
+         }
+     }
+     //4.发送请求
+     xhr.send(null);
+ }
+</script>
